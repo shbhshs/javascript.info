@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<body>
+<script>
+
+function ucFirst(str){
+	return str[0].toUpperCase() + str.substring(1);
+}
+
+function camelize(str){
+	let arr = str.split('-');
+	
+	let camelize_arr = arr.map(ucFirst);
+	camelize_arr[0] = arr[0];
+
+	let final_str = camelize_arr.join('');
+	return final_str;
+}
+
+alert(camelize("background-color") )
+alert(camelize("list-style-image") )
+
+
+// sort in reverse order
+let arr = [2,4,5,1,2];
+arr.sort((a,b) => b > a);
+alert(arr);
+
+//copy sorted
+function copySorted(arr){
+	let copy_arr = []
+	for(let x of arr){
+		copy_arr.push(x);
+	}
+	copy_arr.sort();
+	return copy_arr;
+}
+
+arr = [2,4,3,5,6];
+copy_arr = copySorted(arr);
+alert(arr);
+alert(copy_arr);
+
+let john = { name: "John", age: 25 };
+let pete = { name: "Pete", age: 30 };
+let mary = { name: "Mary", age: 28 };
+
+let users = [ john, pete, mary ];
+
+let names = users.map(item => item.name);
+
+alert( names );
+
+
+
+john = { name: "John", surname: "Smith", id: 1 };
+pete = { name: "Pete", surname: "Hunt", id: 2 };
+mary = { name: "Mary", surname: "Key", id: 3 };
+
+users = [ john, pete, mary ];
+
+let usersMapped = users.map(item => ({'id': item.id, 
+									 'fullName': item.name + ' ' + item.surname}));
+
+alert( usersMapped[0].id ) // 1
+alert( usersMapped[0].fullName ) // John Smith
+
+
+//sort by age
+
+let john = { name: "John", age: 25 };
+let pete = { name: "Pete", age: 30 };
+let mary = { name: "Mary", age: 28 };
+
+let arr = [ pete, john, mary ];
+
+sortByAge(arr);
+
+function sortByAge(arr){
+	
+}
+
+// now: [john, mary, pete]
+alert(arr[0].name); // John
+alert(arr[1].name); // Mary
+alert(arr[2].name); // Pete
+
+
+
+
+</script>
+
+</body>
+</html>

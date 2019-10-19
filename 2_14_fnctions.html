@@ -1,0 +1,43 @@
+<html>
+<body>
+<script>
+function check_age(age){
+		if(age > 18)
+			return true;
+		else
+			return confirm('did parents allow you?')
+}
+
+function check_agev1(age){
+		return ((age > 18) ? true : confirm('did parents allow you?'));
+}
+
+function check_age_v2(age){
+		return (age>18) || confirm('did parents allow you?');
+}
+//check_age_v2(prompt('enter age',''));
+
+
+function min(a,b){
+	if(a<b) return a;
+	else	return b;
+}
+//alert(min(2,5));
+//alert(min(3,-1));
+//alert(min(1,1));
+
+
+function pow(a,b){
+	let result = 1;
+	for(let x=1; x<=b; x++)
+		result *= a;
+	
+	return result;
+}
+
+let a = prompt('a','');
+let b = prompt('b','');
+alert(pow(a,b));
+</script>
+</body>
+</html>

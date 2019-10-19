@@ -1,0 +1,30 @@
+<html>
+<body>
+<script>
+
+function ucFirst(str){
+	let s = str[0].toUpperCase() + str.slice(1);
+	return s;
+}
+
+alert(ucFirst('hello'));
+
+
+function checkSpam(str){
+	str = str.toLowerCase();
+	console.log(str);
+	if(str.indexOf('xxx') == -1)	
+		return true;
+	else if(str.indexOf('viagra') == -1)
+		return true;
+
+	return false;
+}
+
+alert(checkSpam('buy ViAgRA now'))
+alert(checkSpam('free xxxxx') )
+alert(checkSpam("innocent rabbit") )
+</script>
+
+</body>
+</html>

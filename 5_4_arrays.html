@@ -1,0 +1,45 @@
+<html>
+<body>
+<script>
+
+let arr = ['jazz', 'blues'];
+alert(arr);
+
+arr.push('rock-n-roll');
+alert(arr);
+
+let mid = parseInt((arr.length)/2);
+arr[mid] = 'classics';
+alert(arr);
+
+arr.shift()
+alert(arr);
+
+arr.unshift('rap','reggae');
+alert(arr);
+
+
+
+function sumInput() {
+	let arr = [];
+	while(true){
+		let v = prompt('enter value',0);
+		if(isFinite(v)){
+			arr.push(+v);
+		}
+		else break;
+	}
+	let sum = 0;
+	for( let x of arr){
+		sum += x;
+	}
+	
+	return sum;
+}	
+
+alert(sumInput());
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<html>
+<body>
+<script>
+/*
+let cal = {
+	
+	this.read() {
+		this.a = +prompt('a?','');
+		this.b = +prompt('b?','');
+	},
+	this.mul() {
+		return this.a * this.b;
+	},
+	this.sum(){
+		return this.a + this.b;
+	}
+};
+
+cal.read();
+alert(cal.mul());
+alert(cal.sum());
+*/
+
+function Accumulator(startingValue){
+	this.value = startingValue;
+
+	this.read = function() {
+		this.value += +prompt('val',0);
+	};
+}
+
+let accumulator = new Accumulator(1); // initial value 1
+
+accumulator.read(); // adds the user-entered value
+accumulator.read(); // adds the user-entered value
+
+alert(accumulator.value);
+
+</script>
+
+</body>
+</html>

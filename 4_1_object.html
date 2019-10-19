@@ -1,0 +1,56 @@
+<html>
+<body>
+<script>
+
+	let usr = {};
+	usr.name = 'John';
+	usr.surname = 'Smith';
+	
+	usr.name = 'Pete';
+	alert(isEmpty(usr));
+	delete usr.name;
+
+function isEmpty(obj){
+	for(let k in obj)
+		return false;
+	return true;
+}
+
+	let emp_obj = {};
+	alert(isEmpty(emp_obj));
+
+
+	function sum_prop(obj){
+		let ans = 0;
+		for(let k in obj){
+			ans += obj[k];
+		}
+		return ans;
+	}
+	
+	let obj = { 
+			john : 100,
+			ann : 120,
+			pete : 200,
+		};
+	alert(sum_prop(obj));
+
+	
+	let test_obj = { a: 100,
+	 				 b: "gello",
+				};
+	
+	function X_num(obj){
+		for (let k in obj){
+			if(typeof(obj[k]) == 'number')
+				obj[k] *= 2;
+		}
+	}
+	X_num(test_obj);
+	alert(test_obj['a']);
+
+
+</script>
+
+</body>
+</html>
