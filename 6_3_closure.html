@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<body>
+<script>
+
+function sum(a){
+	return function(b){
+		return a+b;
+	};
+}
+
+alert(sum(1)(2));
+alert(sum(1)(-5));
+
+
+let arr = [1, 2, 3, 4, 5, 6, 7];
+
+alert( arr.filter(inBetween(3, 6)) ); // 3,4,5,6
+
+alert( arr.filter(inArray([1, 2, 10])) ); // 1,2
+
+function inBetween(a,b){
+	return function(x){
+		return x>=a && x<=b;
+	};
+}
+
+
+function inArray(arr){
+	return function(x){
+		for(let a in arr){
+			if(x == a)
+				return x;
+		}
+	};
+}
+
+
+let users = [
+  { name: "John", age: 20, surname: "Johnson" },
+  { name: "Pete", age: 18, surname: "Peterson" },
+  { name: "Ann", age: 19, surname: "Hathaway" }
+];
+
+users.sort(byField('name'));
+users.forEach(user => alert(user.name))
+
+users.sort(byField('age'));
+users.forEach(user => alert(user.name));
+
+function byField(field){
+	return function(a,b){
+		return a[field] > b[field] ? 1 : 0;
+	};
+}
+
+
+function makeArmy() {
+  let shooters = [];
+
+  for(let i=0; i < 10;) {
+    let shooter = function() { // shooter function
+      alert( i ); // should show its number
+    };
+    shooters.push(shooter);
+    i++;
+  }
+
+  return shooters;
+}
+
+let army = makeArmy();
+
+army[0](); // the shooter number 0 shows 10
+army[5]();
+
+
+</script>
+
+</body>
+</html>

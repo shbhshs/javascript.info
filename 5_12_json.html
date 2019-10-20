@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<body>
+<script>
+/*
+let user = {
+  name: "John Smith",
+  age: 35
+};
+
+let u = JSON.stringify(user);
+alert(JSON.parse(u));
+*/
+
+
+let room = {
+  number: 23
+};
+
+let meetup = {
+  title: "Conference",
+  occupiedBy: [{name: "John"}, {name: "Alice"}],
+  place: room
+};
+
+// circular references
+room.occupiedBy = meetup;
+meetup.self = meetup;
+
+alert( JSON.stringify(meetup, function replacer(key, value) {
+	if(key != "" && value == meetup)
+		 return undefined;
+	else
+		return value;
+}));	
+
+</script>
+
+</body>
+</html>

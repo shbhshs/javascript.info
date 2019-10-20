@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<body>
+<script>
+
+let user = {
+  firstName: "John",
+  sayHi() {
+    alert(`Hello, ${this.firstName}!`);
+  }
+};
+
+setTimeout(user.sayHi, 1000); // will not work
+
+setTimeout(() => user.sayHi(), 1000);
+
+
+
+</script>
+
+</body>
+</html>

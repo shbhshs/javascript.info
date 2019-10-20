@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<body>
+<script>
+
+function printNumbers(f,t){
+	let x = f;
+	let t_id = setInterval(function(){
+		alert(x);
+		if( x == t ) clearInterval(t_id);
+		x++;
+	},1000);
+}
+// printNumbers(3,5);	
+
+
+function printNumbers2(f,t){
+	let x=f;
+	function call(){
+		if (x < t) setTimeout(call, 2000);		
+		alert(x++);
+	}
+	setTimeout(call, 2000);
+}
+
+printNumbers2(1,10);
+</script>
+
+</body>
+</html>

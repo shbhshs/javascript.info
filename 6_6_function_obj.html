@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<body>
+<script>
+
+function makeCounter() {
+  // instead of:
+  // let count = 0
+
+  function counter() {	
+    return counter.count++;
+  };
+
+	counter.set = function(value){
+		return counter.count = value;
+	};
+
+	counter.decrease = function(){
+		return --counter.count;
+	};
+
+
+  counter.count = 0;
+
+  return counter;
+}
+
+let counter = makeCounter();
+alert( counter() ); // 0
+alert( counter() ); // 1
+alert( counter.set(5)); // 1
+alert( counter.decrease() ); // 1
+
+
+
+function sum(a){
+	let s = a;
+
+	function f(b){
+		s += b;
+		return f;
+	}
+	
+	f.toString =  function(){
+		return s;
+	};
+
+	return f;
+}
+	
+
+alert( sum(1)(2) ); // 3
+alert( sum(5)(-1)(2) ); // 6
+alert( sum(6)(-1)(-2)(-3) ); // 0
+alert( sum(0)(1)(2)(3)(4)(5) ); // 15
+
+
+</script>
+
+</body>
+</html>
