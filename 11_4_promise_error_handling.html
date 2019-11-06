@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<body>
+<script>
+
+new Promise((resolve, reject) => {
+		throw new Error("whoops");
+}).then(() => alert('then before catch')
+).catch(function(error){
+		alert("the error is handled, continue normally");
+}).then(() => alert('next successfull handler runs')
+);
+
+/*
+new Promise((resolve, reject) => {
+	resolve('ok');
+}).then((result) => {
+		//throw new Error("Whoops");
+		blabla();
+}).catch(alert);
+
+*/
+</script>
+
+</body>
+</html>

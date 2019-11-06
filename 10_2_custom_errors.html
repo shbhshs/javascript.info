@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<body>
+<script>
+
+
+class FormatError extends SyntaxError{
+	constructor(error){
+		super(error);
+/*		this.message = 'formatting error';
+		this.name = 'FormatError';
+		this.stack = 'stack';
+*/		this.name = this.constructor.name;
+	}
+}
+
+
+let err = new FormatError("formatting error");
+
+alert( err.message ); // formatting error
+alert( err.name ); // FormatError
+alert( err.stack ); // stack
+
+alert( err instanceof FormatError ); // true
+alert( err instanceof SyntaxError ); 
+
+
+</script>
+
+</body>
+</html>

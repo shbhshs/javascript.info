@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<body>
+<script>
+'use strict';
+
+let user = {name:'jonhn'};
+let disriptor = Object.getOwnPropertyDescriptor(user, 'name');
+alert(JSON.stringify(disriptor, null, 2));
+
+let user1 = {}; 
+Object.defineProperty(user1, 'name', { 
+    value: 'xyz'
+});
+disriptor = Object.getOwnPropertyDescriptor(user1, 'name');
+alert(JSON.stringify(disriptor, null, 2));
+
+
+let user2 = {
+    name : 'sss'
+};
+Object.defineProperty(user2, "name",{
+    writable:false
+});
+
+//user2.name = "pete";
+
+
+user = {
+  name: "John",
+  toString() {
+    return this.name;
+  }
+};
+for (let key in user) alert(key);
+
+Object.defineProperty(user, 'toString', {
+    enumerable :false
+});
+
+for (let key in user) alert(key);
+
+alert(Object.keys(user));
+</script>
+
+</body>
+</html>

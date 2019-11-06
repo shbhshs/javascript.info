@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<body>
+<script>
+
+function Rabbit(name) {
+  this.name = name;
+}
+Rabbit.prototype.sayHi = function() {
+  alert( this.name );
+}
+
+let rabbit = new Rabbit("Rabbit");
+
+rabbit.sayHi();                        // Rabbit
+Rabbit.prototype.sayHi();              // undefined
+Object.getPrototypeOf(rabbit).sayHi(); // undefined
+rabbit.__proto__.sayHi();              
+
+
+
+let dict = Object.create(null, {
+	toString: {
+		value(){
+			return Object.keys(this).join();
+		}
+	}
+});
+
+dict.apple = "Apple";
+dict.__proto__ = "test"; // __proto__ is a regular property key here
+
+
+for(let key in dict) {
+  alert(key); // "apple", then "__proto__"
+}
+
+alert(dict); // "apple,__proto__"
+
+</script>
+
+</body>
+</html>
